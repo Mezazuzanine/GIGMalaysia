@@ -1,0 +1,281 @@
+#city {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+
+  .buildings, input[type=checkbox] {
+    position: absolute;
+    top: 10vh;
+    right: -2vw;
+    height: 80vh;
+    width: 11vw;
+    z-index: -8;
+    margin: 0;
+    transition: transform .5s ease-in-out;
+
+    #city_transition {
+      position: absolute;
+      height: 100%;
+      width: 40%;
+      right: -2.5vw;
+      top: 0;
+      margin: 0;
+      background-color: silver;
+      border-radius: 2em 0 0 2em;
+
+      h3 {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-50%);
+        margin: 0;
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
+
+   input[type=checkbox] {
+    z-index: 10;
+    opacity: 0;
+    pointer-events: auto;
+  }
+
+  .tower {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+  }
+
+  .part {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+  }
+
+  .base {
+    bottom: 0vh;
+    border-top: 4vh solid silver;
+    border-left: .7vw solid transparent;
+    border-right: .7vw solid transparent;
+    width: 100%;
+  }
+
+  .stem {
+    bottom: calc(4vh - 1px);
+    border-bottom: 47vh solid silver;
+    border-left: .9vw solid transparent;
+    border-right: .9vw solid transparent;
+    width: 20%;
+  }
+
+  .down11_white {
+    bottom: calc(51vh - 2px);
+    border-top: 1vh solid silver;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 40%;
+  }
+
+  .down10_black {
+    bottom: calc(52vh - 3px);
+    border-top: 1vh solid black;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 47.5%;
+  }
+
+  .down9_white {
+    bottom: calc(53vh - 4px);
+    border-top: 1vh solid silver;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 55%;
+  }
+
+  .down8_black {
+    bottom: calc(54vh - 5px);
+    border-top: 1vh solid black;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 62.5%;
+  }
+
+  .down7_white {
+    bottom: calc(55vh - 6px);
+    border-top: 1vh solid silver;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 70%;
+  }
+
+  .down6_black {
+    bottom: calc(56vh - 7px);
+    border-top: 1vh solid black;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 77.5%;
+  }
+
+  .down5_white {
+    bottom: calc(57vh - 8px);
+    border-top: 1vh solid silver;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 85%;
+    height: 0;
+  }
+
+  .down4_black {
+    bottom: calc(58vh - 9px);
+    border-top: 1vh solid black;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 92.5%;
+
+  }
+
+  .up3_white {
+    bottom: calc(59vh - 10px);
+    border-bottom: 1vh solid silver;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 92.5%;
+  }
+
+  .up2_black {
+    bottom: calc(60vh - 11px);
+    border-bottom: 1vh solid black;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 85%;
+  }
+
+  .up1_white {
+    bottom: calc(61vh - 12px);
+    border-bottom: 1vh solid silver;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 77.5%;
+  }
+
+  .light {
+    bottom: calc(62vh - 13px);
+    border-top: 2vh solid black;
+    border-left: .5vw solid transparent;
+    border-right: .5vw solid transparent;
+    width: 20%;
+    animation: light_flash 4s step-start infinite;
+  }
+  
+  .peak {
+    bottom: calc(64vh - 14px);
+    border-bottom: 16vh solid silver;
+    border-left: .3vw solid transparent;
+    border-right: .3vw solid transparent;
+    width: 0;
+  }
+
+
+
+
+
+
+
+
+
+  #content {
+    position: absolute;
+    background-color: silver;
+    top: 0;
+    right: calc(-77vw + 1px);
+    width: 75vw;
+    height: 80vh;
+    border-radius: 0 2em 2em 0;
+    transition: transform .5s ease-in-out;
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .content_block {
+    width: 30%;
+    height: 90%;
+    margin: 2%;
+    outline: black solid 0.1em;
+    border-radius: 2em;
+    pointer-events: auto;
+  }
+
+
+
+
+  .content_blocker {
+    z-index: 100000;
+    pointer-events: none;
+  }
+
+  .blocker_top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+  }
+  .blocker_bot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+  }
+  .blocker_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+  }
+
+
+
+
+
+
+
+
+  input[type=checkbox]:checked, input[type=checkbox]:checked ~ .buildings, input[type=checkbox]:checked ~ #content {
+    transform: translateX(-80vw);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:hover:not(:checked), input[type=checkbox]:hover:not(:checked) ~ .buildings, input[type=checkbox]:hover:not(:checked) ~ #content {
+    transform: translateX(-4em);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:checked ~ .content_blocker {
+    pointer-events: auto;
+  }
+
+}
+
+@keyframes light_flash {
+  50% {
+    border-top: 2vh solid red;
+  }
+}

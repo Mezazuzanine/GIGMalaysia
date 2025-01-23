@@ -1,0 +1,195 @@
+#beach {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+
+  .shore, input[type=checkbox] {
+    position: absolute;
+    top: 10vh;
+    left: -2vw;
+    height: 80vh;
+    width: 11vw;
+    z-index: -8;
+    margin: 0;
+    transition: transform .5s ease-in-out;
+    background-color: khaki;
+
+    #shore_transition {
+      position: absolute;
+      height: 100%;
+      width: 40%;
+      left: -2.5vw;
+      top: 0;
+      margin: 0;
+      background-color: powderblue;
+
+      h3 {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-50%) scale(-1);
+        margin: 0;
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
+
+   input[type=checkbox] {
+    z-index: 10;
+    opacity: 0;
+    pointer-events: auto;
+  }
+
+  .tide_line {
+    position: absolute;
+    height: 100%;
+    width: 1%;
+    transform-origin: center;
+    transform: rotate(4.5deg);
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .tide_line_front {
+    right: 4vw;
+  }
+
+  .tide_line_back {
+    right: 7vw;
+  }
+
+  .tide {
+    position: absolute;
+    width: 5vw;
+    height: 0;
+    border-top: 80vh solid powderblue;
+    border-right: 4vw solid transparent;
+    animation: tide_moving 30s ease-in-out infinite;
+  }
+
+
+
+
+
+
+
+
+  #content {
+    position: absolute;
+    background-color: powderblue;
+    top: 0;
+    left: calc(-77vw + 1px);
+    width: 75vw;
+    height: 80vh;
+    border-radius: 2em 0 0 2em;
+    transition: transform .5s ease-in-out;
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .content_block {
+    width: 30%;
+    height: 90%;
+    margin: 2%;
+    outline: black solid 0.1em;
+    border-radius: 2em;
+    pointer-events: auto;
+  }
+
+
+
+
+
+
+  .content_blocker {
+    z-index: 100000;
+    pointer-events: none;
+  }
+
+  .blocker_top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+  }
+  .blocker_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+  }
+  .blocker_bot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+  }
+
+
+
+
+
+
+
+
+
+  input[type=checkbox]:checked, input[type=checkbox]:checked ~ .shore, input[type=checkbox]:checked ~ #content {
+    transform: translateX(80vw);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:hover:not(:checked), input[type=checkbox]:hover:not(:checked) ~ .shore, input[type=checkbox]:hover:not(:checked) ~ #content {
+    transform: translateX(4em);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:checked ~ .content_blocker {
+    pointer-events: auto;
+  }
+
+}
+
+@keyframes tide_moving {
+  0% {
+    width: 5vw;
+  }
+
+  25% {
+    width: 2vw;
+  }
+
+  50% {
+    width: 5vw;
+  }
+
+  75% {
+    width: 0;
+  }
+
+  100% {
+    width: 5vw;
+  }
+}

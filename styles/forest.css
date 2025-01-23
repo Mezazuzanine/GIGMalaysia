@@ -1,0 +1,355 @@
+#forest {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+
+  .trees, input[type=checkbox] {
+    position: absolute;
+    bottom: -6vh;
+    left: 10vw;
+    width: 80vw;
+    height: 15vh;
+    z-index: -8;
+    margin: 0;
+    transition: transform .5s ease-in-out;
+
+    #forest_transitions {
+      position: absolute;
+      height: 40%;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      background-color: mediumseagreen;
+      border-radius: 2em 2em 0 0;
+
+      h3 {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      }
+    }
+  }
+
+   input[type=checkbox] {
+    z-index: 10;
+    opacity: 0;
+    pointer-events: auto;
+  }
+
+  .trees_flex {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    display: flex;
+  }
+
+  .box-canvas{
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 1vmin;
+    margin-bottom: 1vmin;
+    width: 8vmin;
+    height: 8vmin;
+  }
+
+  .box-canvas::before {
+    content: '';
+    position: absolute;
+    width: 8vmin;
+    height: 3vmin;
+    border-radius: 34% 66% 50% 78% / 56% 30% 70% 44%;
+    background: mediumseagreen;
+    bottom: -1vmin;
+    right: 2vmin;
+  }
+
+  .tree {
+    --tree-color: #A45B17;
+    --tree-color-dark: #843C02;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5vmin;
+    height: 7vmin;
+    background: repeating-radial-gradient(circle at top,
+      var(--tree-color),
+      var(--tree-color) .8vmin,
+      var(--tree-color-dark) .8vmin,
+      var(--tree-color-dark) .9vmin
+    );
+    border-radius: 50% 0% / 100% 0;
+  }
+
+  .tree::before {
+    content: "";
+    position: absolute;
+    right: -1.5vmin;
+    width: 5vmin; 
+    height: 7vmin;
+    background: aliceblue;
+    border-radius: 50%;
+  }
+
+  .cutout{
+    position: absolute;
+    right: -2vmin;
+    top: -.2vmin;
+    width: 5vmin; 
+    height: 7.5vmin;
+    background: var(--background-color);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .cutout::before {
+    content: '';
+    position: absolute;
+    width: 3vmin;
+    height: 2vmin;
+    background: aliceblue;
+    border-radius: 0 50% 50% 0;
+    bottom: 0;
+  }
+
+  .leaf {
+    position: absolute;
+    background: linear-gradient(65deg, #66B711, #66B711 50%, #56AB10 50%, #56AB10);
+    width: 2.5vmin;
+    height: 4.5vmin;
+    border-radius: 0% 100% 0% 100% / 30% 100% 0% 70%;
+  }
+
+  .leaf:nth-child(3) {
+    transform: rotate(-20deg);
+    left: 3.6vmin;
+    top: -.1vmin;
+    animation: leaf3_idle 4s ease-in-out infinite;
+  }
+
+  .leaf:nth-child(2) {
+    left: 4.4vmin;
+    transform: rotate(-60deg);
+    top: -1.3vmin;
+    animation: leaf2_idle 4s ease-in-out infinite;
+  }
+
+  .leaf:nth-child(4) {
+    transform: rotate(300deg);
+    top: -1.8vmin;
+    left: 0vmin;
+    animation: leaf4_idle 4s ease-in-out infinite;
+  }
+
+  .leaf:nth-child(5) {
+    transform: rotate(260deg);
+    top: 0vmin;
+    left: .4vmin;
+    animation: leaf5_idle 4s ease-in-out infinite;
+  }
+
+  .leaf::before {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-left: .2vmin solid transparent;
+    border-right: .2vmin solid transparent;
+    
+    border-bottom: .6vmin solid var(--background-color);
+  }
+
+  .leaf:nth-child(2)::before {
+    bottom: 1vmin;
+    left: .5vmin;
+    transform: rotate(45deg);
+  }
+
+  .leaf:nth-child(3)::before {
+    bottom: 1vmin;
+    left: .5vmin;
+    transform: rotate(45deg);
+  }
+
+  .leaf:nth-child(4)::before {
+    top: 1vmin;
+    transform: rotate(65deg);
+  }
+
+  .leaf:nth-child(5)::before {
+    top: 1vmin;
+    transform: rotate(65deg);
+  }
+
+  .leaf::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-left: .2vmin solid transparent;
+    border-right: .2vmin solid transparent;
+    
+    border-bottom: 6vmin solid var(--background-color);
+  }
+
+  .leaf:nth-child(2)::after {
+    bottom: 0;
+    left: 1.5vmin;
+    transform: rotate(65deg);
+  }
+
+  .leaf:nth-child(3)::after {
+    bottom: 0;
+    left: 1.5vmin;
+    transform: rotate(65deg);
+  }
+
+  .leaf:nth-child(4)::after {
+    top: 0;
+    transform: rotate(85deg);
+  }
+
+  .leaf:nth-child(5)::after {
+    top: 0;
+    transform: rotate(85deg);
+  }
+
+
+
+
+  #content {
+    position: absolute;
+    background-color: mediumseagreen;
+    bottom: calc(-79vh + 1px);
+    left: 10vw;
+    width: 80vw;
+    height: 74vh;
+    border-radius: 0 0 2em 2em;
+    transition: transform .5s ease-in-out;
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    z-index: -9;
+  }
+
+  .content_block {
+    width: 30%;
+    height: 90%;
+    margin: 2%;
+    outline: black solid 0.1em;
+    border-radius: 2em;
+    pointer-events: auto;
+  }
+
+
+
+
+  .content_blocker {
+    z-index: 100000;
+    pointer-events: none;
+  }
+
+  .blocker_top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+  }
+  .blocker_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+  }
+  .blocker_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+  }
+
+
+
+
+
+
+  input[type=checkbox]:checked, input[type=checkbox]:checked ~ .trees, input[type=checkbox]:checked ~ #content {
+    transform: translateY(-80vh);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:hover:not(:checked), input[type=checkbox]:hover:not(:checked) ~ .trees, input[type=checkbox]:hover:not(:checked) ~ #content {
+    transform: translateY(-4em);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:checked ~ .content_blocker {
+    pointer-events: auto;
+  }
+
+}
+
+
+@keyframes leaf3_idle {
+  0% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(-15deg) translate(-.1vmin, .4vmin);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes leaf2_idle {
+  0% {
+    transform: rotate(-60deg);
+  }
+  50% {
+    transform: rotate(-55deg) translate(-.1vmin, .4vmin);
+  }
+  100% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes leaf4_idle {
+  0% {
+    transform: rotate(300deg);
+  }
+  50% {
+    transform: rotate(295deg) translate(.1vmin, .4vmin);
+  }
+  100% {
+    transform: rotate(300deg);
+  }
+}
+
+@keyframes leaf5_idle {
+  0% {
+    transform: rotate(260deg);
+  }
+  50% {
+    transform: rotate(255deg) translate(.1vmin, .4vmin);
+  }
+  100% {
+    transform: rotate(260deg);
+  }
+}

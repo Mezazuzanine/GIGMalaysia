@@ -1,0 +1,287 @@
+#home {
+
+  height: 0;
+
+  .float_up{
+    position: absolute;
+    top: 45%;
+    left: 55%;
+  }
+
+  .float_up2{
+    position: absolute;
+    top: 70%;
+    left: 60%;
+  }
+
+  .float_down{
+    position: absolute;
+    top: 65%;
+    left: 35%;
+  }
+
+
+  .home_top_half {
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+    top: 0;
+    left: 0;
+  }
+
+  .home_bottom_half {
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+    bottom: 0;
+    left: 0;
+  }
+
+  .home_left_half {
+    position: absolute;
+    width: 50vw;
+    height: 0;
+    top: 50%;
+    left: 0;
+  }
+
+  .home_right_half {
+    position: absolute;
+    width: 50vw;
+    height: 0;
+    top: 50%;
+    right: 0;
+  }
+
+  .home_back {
+    z-index: -1;
+    pointer-events: none;
+    background-color: lightblue;
+    pointer-events: none;
+  }
+
+  
+  .cloud{
+    position: absolute;
+    width: 40em;
+    height: 20em;
+    transform: translate(-50%, -50%);
+
+    background: azure;
+    box-shadow: 1em 1em rgba(0,0,0,0.2);
+    border-radius: 40em;
+    pointer-events: none;
+
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .cloud::after, .cloud::before{
+    content:"";
+    position:relative;
+    display:inline-block;
+    background:inherit;
+    border-radius:inherit;
+    z-index: 99;
+    box-shadow: .3em -.3em rgba(0,0,0,.2);
+  }
+
+  /*Left Bump*/
+  .cloud::before{
+    position: absolute;
+    top: -7em;
+    left: 6em;
+    width: 15em;
+    height: 15em;
+  }
+
+  /*Right bump*/
+  .cloud::after{
+    position: absolute;
+    top: -10em;
+    left: 16em;
+    width: 20em;
+    height: 20em;
+  }
+
+  h1, h3, h4 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6.5em;
+    z-index: 102;
+  }
+
+
+  .small_cloud{
+    position: absolute;
+    width: 30em;
+    height: 15em;
+    transform: translate(-50%, -50%);
+
+    background-color: azure;
+    box-shadow: 1em 1em rgba(0,0,0,0.2);
+    border-radius: 30em;
+    pointer-events: none;
+
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .small_cloud::after, .small_cloud::before{
+    content:"";
+    position:relative;
+    display:inline-block;
+    background:inherit;
+    border-radius:inherit;
+    z-index: 99;
+    box-shadow: .3em -.3em rgba(0,0,0,.2);
+  }
+
+  /*Left Bump*/
+  .small_cloud::before{
+    position: absolute;
+    top: -7.5em;
+    left: 4.5em;
+    width: 15em;
+    height: 15em;
+
+  }
+
+  /*Right bump*/
+  .small_cloud::after{
+    position: absolute;
+    top: -5.25em;
+    left: 16em;
+    width: 11.25em;
+    height: 11.25em;
+  }
+
+  .smaller_cloud{
+    position: absolute;
+    width: 20em;
+    height: 10em;
+
+    background: azure;
+    box-shadow: 1em 1em rgba(0,0,0,0.2);
+    border-radius: 20em;
+    pointer-events: none;
+
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .smaller_cloud::after, .smaller_cloud::before{
+    content:"";
+    position:relative;
+    display:inline-block;
+    background:inherit;
+    border-radius:inherit;
+    z-index: 100;
+    box-shadow: .3em -.3em rgba(0,0,0,.2);
+  }
+
+  /*Left Bump*/
+  .smaller_cloud::before{
+    position: absolute;
+    top: -3.5em;
+    left: 3em;
+    width: 7.5em;
+    height: 7.5em;
+  }
+
+  /*Right bump*/
+  .smaller_cloud::after{
+    position: absolute;
+    top: -5em;
+    left: 8em;
+    width: 10em;
+    height: 10em;
+  }
+
+  
+  /*Transition complete. Do not touch.*/
+  input[type=checkbox] {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 200000;
+  }
+
+  input[type=checkbox]:checked {
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -101;
+  }
+
+  input[type=checkbox]:checked ~ .float_up {
+    transform: translateY(-100vh);
+    transition: transform 1.5s ease-in;
+    animation: fade_out_home 1.5s forwards 1 ease-in;
+  }
+  input[type=checkbox]:checked ~ .float_up2 {
+    transform: translateY(-100vh);
+    transition: transform 1.5s ease-in;
+    animation: fade_out_home 1.5s forwards 1 ease-in;
+  }
+
+
+  input[type=checkbox]:checked ~ .float_down {
+    transform: translateY(100vh);
+    transition: transform 1.5s ease-in;
+    animation: fade_out_home 1.5s forwards 1 ease-in;
+  }
+
+  input[type=checkbox]:checked ~ .home_top_half {
+    transform: translateY(-50vh);
+    transition: transform 1.5s linear; 
+  }
+
+  input[type=checkbox]:checked ~ .home_bottom_half {
+    transform: translateY(50vh);
+    transition: transform 1.5s linear;
+  }
+
+  input[type=checkbox]:checked ~ .home_left_half {
+    transform: translateX(-50vw);
+    height: 100vh;
+    top: 0;
+    transition: transform 1.5s linear, height 1.5s linear, top 1.5s linear;
+  }
+
+  input[type=checkbox]:checked ~ .home_right_half {
+    transform: translateX(50vw);
+    height: 100vh;
+    top: 0;
+    transition: transform 1.5s linear, height 1.5s linear, top 1.5s linear;
+  }
+
+  input[type=checkbox]:checked ~ .home_back {
+    animation: fade_out_home 1.5s forwards 1 ease-in;
+  }
+
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(1em) scaleY(1.01);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+@keyframes fade_out_home {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

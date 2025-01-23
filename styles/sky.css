@@ -1,0 +1,186 @@
+#sky {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+
+  .clouds, input[type=checkbox] {
+    position: absolute;
+    top: -6vh;
+    left: 10vw;
+    width: 80vw;
+    height: 15vh;
+    z-index: -8;
+    margin: 0;
+    transition: transform .5s ease-in-out;
+
+    #cloud_transitions {
+      position: absolute;
+      height: 40%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      background-color: thistle;
+      border-radius: 0 0 2em 2em;
+
+      h3 {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+      }
+    }
+  }
+
+   input[type=checkbox] {
+    z-index: 10;
+    opacity: 0;
+    pointer-events: auto;
+  }
+
+  .clouds_flex {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+  }
+
+
+  .cloud{
+    position: relative;
+    margin: auto;
+    display: block;
+    width: 4em;
+    height: 2em;
+    bottom: -1vh;
+    transform: translateX(-50%);
+
+    background: thistle;
+    box-shadow: .2em .2em rgba(0,0,0,0.2);
+    border-radius: 40em;
+    pointer-events: none;
+
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .cloud::after, .cloud::before{
+    content:"";
+    position:relative;
+    display:inline-block;
+    background:inherit;
+    border-radius:inherit;
+    z-index: -8;
+    box-shadow: .2em -.2em rgba(0,0,0,.2);
+  }
+
+  /*Left Bump*/
+  .cloud::before{
+    position: absolute;
+    top: -.7em;
+    left: .6em;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  /*Right bump*/
+  .cloud::after{
+    position: absolute;
+    top: -1em;
+    left: 1.6em;
+    width: 2em;
+    height: 2em;
+  }
+
+
+
+
+
+
+
+
+  #content {
+    position: absolute;
+    background-color: thistle;
+    top: calc(-79vh + 1px);
+    left: 10vw;
+    width: 80vw;
+    height: 74vh;
+    border-radius: 2em 2em 0 0;
+    transition: transform .5s ease-in-out;
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    z-index: -9;
+  }
+
+  .content_block {
+    width: 96%;
+    height: 90%;
+    margin: 2%;
+    outline: black solid 0.1em;
+    border-radius: 2em;
+    pointer-events: auto;
+  }
+
+
+
+
+  .content_blocker {
+    z-index: 100000;
+    pointer-events: none;
+  }
+
+  .blocker_bot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+  }
+  .blocker_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+  }
+  .blocker_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+  }
+
+
+
+
+
+
+  input[type=checkbox]:checked, input[type=checkbox]:checked ~ .clouds, input[type=checkbox]:checked ~ #content {
+    transform: translateY(80vh);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:hover:not(:checked), input[type=checkbox]:hover:not(:checked) ~ .clouds, input[type=checkbox]:hover:not(:checked) ~ #content {
+    transform: translateY(4em);
+    transition: transform .5s ease-in-out;
+  }
+
+  input[type=checkbox]:checked ~ .content_blocker {
+    pointer-events: auto;
+  }
+
+}
+
+
