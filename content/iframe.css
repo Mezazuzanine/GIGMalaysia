@@ -11,3 +11,10 @@ img {
   margin-right: auto;
   display: block;
 }
+
+a {
+  font-family: Merriweather, "Times New Roman", serif;
+  font-size: 1em;
+  text-decoration: none;
+  color: black;
+}
